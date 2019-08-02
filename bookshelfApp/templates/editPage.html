@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+  <h1 style="color:palevioletred;">Edite Mode Enabled</h1>
+   <h3>{{ editingBook.name }} is ready to edit</h3>
+
+  <table>
+<div id="editMode" >
+
+    <p id="whichBook"> </p>
+
+     <form class="form-inline" action="" method="get">
+
+<tr>
+    <td>  <label for="BookName">Book Name:    </label> </td>
+     <td>   <input type="text"  value ={{ editingBook.name }}   name="BookName" > </td>
+
+</tr>
+
+    <tr>
+       <td> <label for="PublicationDate">Publication Date: </label> </td>
+        <td>  <input type="text"  value={{ editingBook.better_time }}  name="PublicationDate" > </td>
+    </tr>
+
+
+     <tr>
+        <td> <label for="PageNumber">Page Number: </label> </td>
+      <td> <input type="text"  value={{  editingBook.pageNumber  }} name="PageNumber"> </td>
+     </tr>
+
+    <tr>
+        <td><label for="FirstPublished">First Published: </label> </td>
+      <td> <input type="text"  value={{  editingBook.firstPublished  }} name="FirstPublished"> </td>
+        </tr>
+
+  <tr>
+      <td><input type="hidden"  name="editButton"  value = {{editButtonValue}}></td>
+      <td><button type="submit" class="btn btn-primary" name="updateButton" value="updateClicked">Update</button> </td></tr>
+ </form>
+</div>
+</table>
+</body>
+</html>

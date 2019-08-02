@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>book shelf is here</title>
+    <style>
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+
+}
+
+#btn1{
+    margin-left: 45%;
+}
+</style>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script>
+        function showDiv() {
+           document.getElementById("formWrapper").style.display= "block";
+        }
+
+
+    </script>
+    <script type="text/javascript">
+
+
+</script>
+</head>
+<body>
+
+<h1 style="color: hotpink"> book shelf is here </h1>
+
+<div>
+
+</div>
+<form action="/" method="get">
+<table>
+
+  <tr>
+    <th>Book Name</th>
+    <th>Publication Date</th>
+    <th>Page Number</th>
+    <th>First Published ?</th>
+  </tr>
+
+ {% for book in bookshelfs.all %}
+     <tr>
+    <td id={{ book.id }} contenteditable="true">{{ book.name }}</td>
+         <td contenteditable="true">{{ book.anotherDateFormat }}</td>
+     <td contenteditable="true">{{ book.pageNumber }}</td>
+      <td contenteditable="true">{{ book.firstPublished }}</td>
+
+
+     <td><button type="submit"  name="removeButton" value={{ book.id }}> remove </button></td>
+     <td> <button type="submit" id="editButton" onclick="editClick()"   name="editButton"  value={{ book.id }} > edit </button> </td>
+
+
+       </tr>
+    {% endfor %}
+
+
+
+
+
+<tbody></tbody>
+</table>
+    <br>
+<div>
+    <button type="button" class="btn btn-primary" id="btn1" name="addButton" value="addClicked" onclick="showDiv()">Add new Book</button>
+</div>
+
+    <br>
+    <br>
+
+<div id="formWrapper" style="display: none">
+ <form class="form-inline" autocomplete="off" action="/" method="get">
+
+
+
+  <label for="BookName">Book Name: </label>
+  <input type="text" autocomplete="off"   placeholder="Enter Name" name="BookName">
+
+  <label for="PublicationDate">Publication Date: </label>
+  <input type="text" autocomplete="off"  placeholder="Enter Date" name="PublicationDate">
+
+     <label for="PageNumber">Page Number: </label>
+  <input type="text"  autocomplete="off" placeholder="	Enter Number" name="PageNumber">
+
+     <label for="FirstPublished">First Published: </label>
+  <input type="text"  placeholder="Enter Published" name="FirstPublished">
+
+  <button type="submit" class="btn btn-primary" name="saveButton" value="saveClicked">Save</button>
+ </form>
+</div>
+</form>
+
+</body>
+</html>
